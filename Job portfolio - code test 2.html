@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Kejsan Çoku | SEO & Digital Marketing Specialist</title>
+    <style>
+        /* Basic body styling */
+        body {
+            margin: 0;
+            font-family: "Roboto", sans-serif;
+            background-color: #0A0E21;
+            color: #F4F6FC;
+            line-height: 1.6;
+            scroll-behavior: smooth; /* Smooth scrolling for in-page links */
+            position: relative;
+        }
+
+        /* Global link styles */
+        a {
+            text-decoration: none;
+            color: #3b82f6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: "Montserrat", sans-serif;
+            font-weight: 700;
+            margin: 0 0 20px 0;
+        }
+
+        p {
+            margin: 0 0 20px 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+
+        /* HEADER */
+        /* Fixed header with transparent background */
+        header {
+            position: fixed; /* Stays at top */
+            top: 0;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Center the header content */
+            padding: 15px 40px;
+            background-color: rgba(10,14,33,0.8); /* Slightly transparent */
+            z-index: 999;
+        }
+
+        /* Logo on the left side */
+        .logo {
+            position: absolute; /* Take logo out of flex flow */
+            left: 40px; /* Match header padding */
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 50px;
+            height: auto;
+            /* Removed name next to logo as requested */
+        }
+
+        /* Navigation menu centered */
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            justify-content: center; /* Center nav items */
+            flex-wrap: wrap; /* Allow wrapping if needed */
+            padding: 0 60px; /* Give space for logo */
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #F4F6FC;
+            font-weight: 700;
+            font-family: "Montserrat", sans-serif;
+            transition: color 0.3s ease;
+            position: relative;
+            white-space: nowrap; /* Prevent link text from wrapping */
+        }
+
+        .nav-links a:hover {
+            color: #3b82f6;
+        }
+
+        /* Highlight the active nav link */
+        .nav-links a.active {
+            color: #3b82f6;
+        }
+
+        /* HERO SECTION */
+        /* Hero with text and image more centered and slightly closer together */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-around; /* More centered layout */
+            padding: 160px 20px 100px; /* top padding accounts for the fixed header */
+            background-color: #0A0E21;
+            max-width: 1200px; /* Set max-width to contain elements */
+            margin: 0 auto; /* Center the hero section */
+            position: relative; /* Create positioning context */
+        }
+
+        .hero-text {
+            max-width: 500px;
+            position: relative; /* Keep text in place */
+        }
+
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            margin-bottom: 40px;
+            color: #A9ACB5;
+        }
+
+        .cta-buttons {
+            display: inline-flex;
+            gap: 20px;
+            position: relative; /* Keep buttons in place */
+        }
+
+        .cta-buttons button {
+            background-color: #3b82f6;
+            border: none;
+            padding: 15px 30px;
+            color: #F4F6FC;
+            cursor: pointer;
+            font-weight: 700;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .cta-buttons button:hover {
+            background-color: #3572d4;
+        }
+
+        /* Hero image on the right side */
+        .hero-img {
+            max-width: 400px;
+            flex-shrink: 0;
+            position: relative; /* Keep image in place */
+        }
+
+        .hero-img img {
+            width: 100%;
+            border-radius: 16px;
+        }
+
+        /* ABOUT SECTION */
+        /* Move it slightly up by reducing margin-top */
+        .about-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #141828;
+            border-radius: 20px;
+            padding: 60px 40px;
+            margin-top: 40px; /* Reduced from 60px to bring it a bit up */
+            text-align: center;
+        }
+
+        .about-section p {
+            max-width: 700px;
+            color: #F4F6FC;
+        }
+
+        /* SKILLS & SERVICES */
+        .services {
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        .services h2 {
+            margin-bottom: 40px;
+        }
+
+        .services-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .service-card {
+            background-color: #1E2230;
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            width: 250px;
+            text-align: center;
+        }
+
+        .service-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            font-size: 0.95em;
+            color: #A9ACB5;
+        }
+
+        /* EXPERIENCE SECTION */
+        .experience {
+            margin-top: 60px;
+        }
+
+        .experience h2 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .company-card {
+            background-color: #1E2230;
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .company-header {
+            margin-bottom: 20px;
+        }
+
+        .company-header h3 {
+            margin: 0;
+            font-size: 1.5em;
+        }
+
+        .company-header p {
+            font-size: 0.95em;
+            color: #A9ACB5;
+            margin-top: 5px;
+        }
+
+        .role-block {
+            padding: 20px;
+            background-color: #141828;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        .role-block h4 {
+            margin: 0 0 10px 0;
+            font-size: 1.2em;
+        }
+
+        .role-block p {
+            margin: 0 0 10px 0;
+            color: #A9ACB5;
+            font-size: 0.95em;
+        }
+
+        .role-details {
+            display: none;
+            margin-top: 10px;
+            color: #A9ACB5;
+            font-size: 0.95em;
+            line-height: 1.4;
+        }
+
+        .read-more-btn {
+            background-color: #3b82f6;
+            color: #F4F6FC;
+            border: none;
+            padding: 8px 16px;
+            cursor: pointer;
+            font-weight: 700;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .read-more-btn:hover {
+            background-color: #3572d4;
+        }
+
+        /* PROJECTS */
+        .projects {
+            margin-top: 60px;
+        }
+
+        .projects h2 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .projects-grid {
+            display: grid;
+            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
+        .project-card {
+            background-color: #1E2230;
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .project-card img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .project-card p {
+            color: #A9ACB5;
+            font-size: 0.95em;
+        }
+
+        /* EDUCATION & CERTIFICATIONS */
+        .education {
+            margin-top: 60px;
+        }
+
+        .education h2 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .education-content {
+            background-color: #1E2230;
+            border-radius: 16px;
+            padding: 20px;
+        }
+
+        .education-content p, .education-content ul {
+            color: #A9ACB5;
+        }
+
+        /* CONTACT SECTION */
+        .contact-section {
+            margin-top: 60px;
+            text-align: center;
+            background-color: #1E2230;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .contact-section h2 {
+            margin-bottom: 20px;
+        }
+
+        .contact-section p {
+            color: #A9ACB5;
+            margin-bottom: 30px;
+        }
+
+        .contact-form {
+            max-width: 500px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            font-family: "Roboto", sans-serif;
+        }
+
+        .contact-form input::placeholder, .contact-form textarea::placeholder {
+            color: #999999;
+        }
+
+        .contact-form button {
+            background-color: #f0635d;
+            color: #f4f6fc;
+            border: none;
+            padding: 15px;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: #e05450;
+        }
+
+        /* FOOTER */
+        footer {
+            margin-top: 60px;
+            text-align: center;
+            padding: 40px 20px;
+            color: #A9ACB5;
+            font-size: 0.9em;
+        }
+
+        /* Footer nav links same as header links for consistency */
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+
+        .footer-nav a {
+            text-decoration: none;
+            color: #F4F6FC;
+            font-weight: 700;
+            font-family: "Montserrat", sans-serif;
+            transition: color 0.3s ease;
+        }
+
+        .footer-nav a:hover {
+            color: #3b82f6;
+        }
+
+        /* GO TO TOP BUTTON */
+        /* Appears at bottom right when scrolled to bottom portion */
+        #goTop {
+            display: none; /* Hidden by default */
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            background-color: #3b82f6;
+            color: #F4F6FC;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            transition: background-color 0.3s ease;
+            z-index: 999;
+        }
+
+        #goTop:hover {
+            background-color: #3572d4;
+        }
+
+        /* RESPONSIVE STYLES */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                padding: 15px;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                gap: 15px;
+                margin-top: 10px;
+            }
+
+            .hero {
+                flex-direction: column;
+                padding: 200px 20px 100px; /* More top padding due to nav stack */
+                text-align: center;
+                justify-content: center; /* Center content vertically */
+            }
+
+            .hero-text {
+                max-width: 100%;
+                margin-bottom: 40px;
+            }
+
+            .hero-img {
+                max-width: 70%;
+            }
+
+            .hero h1 {
+                font-size: 2em;
+            }
+
+            /* Ensure cards and sections fit well on mobile */
+            .service-card {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER with logo and nav -->
+    <!-- comment: This section creates a fixed header with a logo on the left and nav links on the right -->
+    <header>
+        <div class="logo">
+            <!-- comment: Logo image -->
+            <img src="images/Kejsan Logo.png" alt="Kejsan Coku Brand Logo">
+        </div>
+        <nav class="nav-links">
+            <!-- comment: Updated nav order: About, Skills, Experience, Projects, Contact -->
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <!-- comment: Hero with text and image. Text is hero-text div, image is hero-img div -->
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Kejsan Çoku - SEO & Digital Marketing Specialist</h1>
+            <p>Helping businesses grow through effective SEO and digital marketing strategies. Leveraging AI-driven strategies to boost organic growth and brand engagement.</p>
+            <div class="cta-buttons">
+                <!-- comment: CTA buttons scroll to contact and experience sections -->
+                <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact Me</button>
+                <button onclick="document.getElementById('experience').scrollIntoView({behavior:'smooth'})">View My Work</button>
+            </div>
+        </div>
+        <div class="hero-img">
+            <!-- comment: Hero image on the right side -->
+            <img src="images/kejsan.png" alt="Kejsan Coku Picture">
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- ABOUT SECTION -->
+        <!-- comment: About section with reduced top margin -->
+        <section id="about" class="about-section">
+            <h2>About Me</h2>
+            <p>
+                With over 5 years of experience in SEO, content creation, and social media management—supported by a background in customer service and sales—I’m passionate about creating impactful digital marketing campaigns. I continuously explore emerging technologies, especially AI, to enhance user experiences and drive meaningful engagement for businesses. By combining analytics, creativity, and research, I deliver data-backed strategies that yield sustainable growth.
+            </p>
+        </section>
+        
+        <!-- SKILLS & SERVICES SECTION -->
+        <!-- comment: Displays skill/service cards in a grid -->
+        <section class="services" id="skills">
+            <h2>Skills & Services</h2>
+            <div class="services-grid">
+                <!-- comment: Each skill in a card -->
+                <div class="service-card">
+                    <h3>SEO Expertise</h3>
+                    <p>Keyword Research, Technical SEO, On/Off-Page Optimization, Content Optimization, Link Building</p>
+                </div>
+                <div class="service-card">
+                    <h3>SEO Tools</h3>
+                    <p>Ahrefs, SEMrush, Moz, Ubersuggest, AlsoAsked, Google Analytics, GSC, Google Ads Manager, Screaming Frog</p>
+                </div>
+                <div class="service-card">
+                    <h3>Content Creation</h3>
+                    <p>Blogging, Copywriting, Content Strategy, Email Marketing, Newsletter Management, ChatGPT Prompting</p>
+                </div>
+                <div class="service-card">
+                    <h3>Social Media Management</h3>
+                    <p>Strategy, Scheduling, Engagement, Analytics</p>
+                </div>
+                <div class="service-card">
+                    <h3>Graphic Design</h3>
+                    <p>Canva (Basic Use)</p>
+                </div>
+                <div class="service-card">
+                    <h3>Soft Skills</h3>
+                    <p>Communication, Empathy, Creativity, Problem-Solving, Analytical Thinking</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE SECTION -->
+        <!-- comment: Experience cards with read-more details -->
+        <section class="experience" id="experience">
+            <h2>Work Experience</h2>
+            <!-- comment: Each company-card represents a company and roles within it -->
+            <div class="company-card">
+                <div class="company-header">
+                    <h3>E-Commerce (Company Confidential), Chicago, USA</h3>
+                    <p>July 2024 - Present</p>
+                </div>
+                <div class="role-block">
+                    <h4>SEO Specialist</h4>
+                    <p>Conduct SEO optimizations focusing on keyword research, technical improvements, and content optimization.</p>
+                    <button class="read-more-btn" onclick="toggleDetails('details-confidential')">Read More</button>
+                    <div class="role-details" id="details-confidential">
+                        - Conducted detailed SEO audits to boost organic traffic.<br>
+                        - Collaborated with content teams to improve keyword targeting.<br>
+                        - Utilized SEMrush and BrightEdge for competitor analysis and tracking.<br>
+                        - Created SEO reports to communicate progress.
+                    </div>
+                </div>
+            </div>
+            <!-- Additional experience cards below... (Cardo AI, Ipervox, LinkedCopy, etc.) -->
+
+            <div class="company-card">
+                <div class="company-header">
+                    <h3>Cardo AI, Tirana, Albania</h3>
+                    <p>October 2021 - July 2024</p>
+                </div>
+                <div class="role-block">
+                    <h4>Digital Marketing Specialist (January 2024 - July 2024)</h4>
+                    <p>Developed & executed content strategies for social media & email marketing, conducted SEO audits, and supported site migration.</p>
+                    <button class="read-more-btn" onclick="toggleDetails('details-cardo1')">Read More</button>
+                    <div class="role-details" id="details-cardo1">
+                        - Managed a LinkedIn newsletter reaching 3,200+ subscribers in 2 editions.<br>
+                        - Implemented SEO optimizations for a website redesign, ensuring site health.<br>
+                        - Created and managed internal newsletters, LinkedIn content, and supported A/B testing for email campaigns.<br>
+                        - Collaborated with cross-functional teams for strategic alignment.
+                    </div>
+                </div>
+                <div class="role-block">
+                    <h4>Social Media & SEO Specialist (October 2021 - December 2023)</h4>
+                    <p>Managed social media content, performed keyword research & technical SEO improvements to drive engagement and traffic.</p>
+                    <button class="read-more-btn" onclick="toggleDetails('details-cardo2')">Read More</button>
+                    <div class="role-details" id="details-cardo2">
+                        - Implemented social media content strategies aligning with marketing targets.<br>
+                        - Conducted keyword research and technical SEO enhancements.<br>
+                        - Used analytics tools for performance tracking and strategy refinement.<br>
+                        - Increased brand’s social media following and engagement metrics.
+                    </div>
+                </div>
+            </div>
+
+            <div class="company-card">
+                <div class="company-header">
+                    <h3>Ipervox, Tirana, Albania</h3>
+                    <p>December 2020 - October 2021</p>
+                </div>
+                <div class="role-block">
+                    <h4>SEO & Content Manager</h4>
+                    <p>Created & optimized content, applied SEO best practices, and significantly increased organic traffic.</p>
+                    <button class="read-more-btn" onclick="toggleDetails('details-ipervox1')">Read More</button>
+                    <div class="role-details" id="details-ipervox1">
+                        - Developed a content strategy boosting organic visibility and traffic.<br>
+                        - Created and optimized long-form content, ranking in top 3 for "voice technology".<br>
+                        - Increased organic clicks from 5 to over 3,000 per month within 6 months.<br>
+                        - Collaborated with designers and developers on SEO-friendly pages.
+                    </div>
+                </div>
+                <div class="role-block">
+                    <h4>Social Media Marketing Manager (November 2020 - October 2021)</h4>
+                    <p>Developed engaging social content, optimized posting schedules, and interacted with audiences online.</p>
+                    <button class="read-more-btn" onclick="toggleDetails('details-ipervox2')">Read More</button>
+                    <div class="role-details" id="details-ipervox2">
+                        - Created engaging text, image, and video content for social platforms.<br>
+                        - Optimized post timing based on traffic and engagement metrics.<br>
+                        - Facilitated online conversations, responded to queries, and stayed updated with social platform changes.
+                    </div>
+                </div>
+            </div>
+
+            <div class="company-card">
+                <div class="company-header">
+                    <h3>LinkedCopy (Remote)</h3>
+                    <p>March 2020 – July 2021</p>
+                </div>
+                <div class="role-block">
+                    <h4>Content Writer & Social Media Manager</h4>
+                    <p>Wrote & edited digital content, managed social media channels to increase engagement.</p>
+                    <button class="read-more-btn" onclick="toggleDetails('details-linkedcopy')">Read More</button>
+                    <div class="role-details" id="details-linkedcopy">
+                        - Created compelling blog posts, articles, and social media copy.<br>
+                        - Scheduled content to align with audience peak times.<br>
+                        - Monitored engagement and adjusted content strategy accordingly.
+                    </div>
+                </div>
+            </div>
+
+            <div class="company-card">
+                <div class="company-header">
+                    <h3>Teleperformance Albania</h3>
+                    <p>November 2016 – September 2020</p>
+                </div>
+                <div class="role-block">
+                    <h4>Customer Service Representative</h4>
+                    <p>Resolved customer inquiries, maintained service records, and improved service efficiency.</p>
+                    <button class="read-more-btn" onclick="toggleDetails('details-teleperformance')">Read More</button>
+                    <div class="role-details" id="details-teleperformance">
+                        - Provided prompt, accurate responses across various channels.<br>
+                        - Logged interactions and contributed feedback to improve processes.<br>
+                        - Built rapport with customers to ensure satisfaction and loyalty.
+                    </div>
+                </div>
+            </div>
+
+            <div class="company-card">
+                <div class="company-header">
+                    <h3>IDS Group (Tirana, Albania)</h3>
+                    <p>October 2015 – November 2016</p>
+                </div>
+                <div class="role-block">
+                    <h4>Business Specialist Consultant</h4>
+                    <p>Enhanced customer satisfaction through communication & client-focused solutions.</p>
+                    <button class="read-more-btn" onclick="toggleDetails('details-ids')">Read More</button>
+                    <div class="role-details" id="details-ids">
+                        - Monitored inter-department communication to enhance processes.<br>
+                        - Advised on improvements to better meet client needs.<br>
+                        - Provided guidance on problem resolution and strategic implementation.
+                    </div>
+                </div>
+            </div>
+
+            <div class="company-card">
+                <div class="company-header">
+                    <h3>SAN LORENZO SRL (Albania)</h3>
+                    <p>July 2014 – September 2014</p>
+                </div>
+                <div class="role-block">
+                    <h4>Selling Specialist</h4>
+                    <p>Sold culinary products & maintained client relationships.</p>
+                    <button class="read-more-btn" onclick="toggleDetails('details-sanlorenzo')">Read More</button>
+                    <div class="role-details" id="details-sanlorenzo">
+                        - Assisted customers in selecting products based on their needs.<br>
+                        - Ensured product knowledge to answer customer queries effectively.<br>
+                        - Maintained relationships to encourage repeat business.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS SECTION -->
+        <section class="projects" id="projects">
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <h3>LinkedIn Newsletter Launch (Cardo AI)</h3>
+                    <img src="images/cardo.png" alt="LinkedIn Newsletter preview">
+                    <p>Launched a monthly LinkedIn newsletter in collaboration with the Marketing Team, gaining 3,200+ subscribers in 2 editions, boosting brand visibility & engagement.</p>
+                </div>
+                <div class="project-card">
+                    <h3>SEO Growth Strategy (Ipervox)</h3>
+                    <img src="images/ipervox.png" alt="SEO Growth Strategy Results preview">
+                    <p>Implemented an SEO strategy increasing organic clicks from 5 to 3,000+ per month in under 6 months, ranking top 3 for “voice technology” for more than a year.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- EDUCATION & CERTIFICATIONS -->
+        <section class="education">
+            <h2>Education & Certifications</h2>
+            <div class="education-content">
+                <h3>Education</h3>
+                <p><strong>Bachelor's Degree in Chemistry and Food Technology</strong><br>University of Tirana (2013 – 2016)</p>
+                <h3>Certifications</h3>
+                <ul>
+                    <li>Advanced Content Marketing Certification</li>
+                    <li>Google Analytics Essential Training</li>
+                    <li>Foundations of Project Management</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="contact-section">
+            <h2>Ready to Scale Your Digital Presence?</h2>
+            <p>Get in touch for a consultation or request portfolio samples.</p>
+            <form class="contact-form" action="mailto:kejsancoku@gmail.com" method="post" enctype="text/plain">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </div> <!-- end container -->
+
+    <!-- FOOTER -->
+    <!-- comment: Footer with navigation links and Go to Top link -->
+    <footer>
+        <div class="footer-nav">
+            <!-- comment: same links as header -->
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
+        &copy; 2024 Kejsan Çoku - All rights reserved. | <a href="https://linkedin.com/in/kejsan" target="_blank">LinkedIn</a>
+    </footer>
+
+    <!-- GO TO TOP BUTTON -->
+    <!-- comment: This button is hidden until user scrolls down. On click, scrolls back to top -->
+    <button id="goTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">Top</button>
+
+    <script>
+        // comment: Toggle details for experience items
+        function toggleDetails(id) {
+            const details = document.getElementById(id);
+            const btn = details.previousElementSibling;
+            if (details.style.display === "block") {
+                details.style.display = "none";
+                btn.textContent = "Read More";
+            } else {
+                details.style.display = "block";
+                btn.textContent = "Read Less";
+            }
+        }
+
+        // comment: Highlight the nav link of the section currently in view
+        const sections = document.querySelectorAll("section");
+        const navLinks = document.querySelectorAll(".nav-links a");
+
+        window.addEventListener("scroll", () => {
+            let current = "";
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 200;
+                if (window.scrollY >= sectionTop) {
+                    current = section.getAttribute("id");
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove("active");
+                if (link.getAttribute("href").includes(current)) {
+                    link.classList.add("active");
+                }
+            });
+        });
+
+        // comment: Show "Go to top" button when reaching near bottom of page
+        const goTopBtn = document.getElementById('goTop');
+        window.addEventListener('scroll', () => {
+            // Show button if user scrolls down 600px or so
+            if (window.scrollY > 600) {
+                goTopBtn.style.display = 'block';
+            } else {
+                goTopBtn.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
